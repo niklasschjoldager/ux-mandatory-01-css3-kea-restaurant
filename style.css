@@ -48,7 +48,7 @@ ul {
 }
 
 a {
-  color: var(--clr-white);
+  color: var(--clr-secondary);
   text-decoration: none;
 }
 
@@ -66,6 +66,10 @@ img {
 
 .container.container--no-gutters {
   padding-inline: 0;
+}
+
+.container.container--fluid {
+  width: 100%;
 }
 
 .list {
@@ -113,6 +117,7 @@ blockquote {
   padding-block: 0.5rem;
   padding-inline: 1rem;
   text-align: center;
+  color: var(--clr-white);
 }
 
 .navigation__link:not(:last-child) {
@@ -134,8 +139,12 @@ blockquote {
   max-width: 65ch;
 }
 
-.flow > *:not(:last-child) {
+.flow > * {
   margin-block-end: 1rem;
+}
+
+.flow > *:last-child {
+  margin-block-end: 0;
 }
 
 .footer {
@@ -153,40 +162,6 @@ blockquote {
 
   .navigation__link {
     border-bottom: 0;
-  }
-}
-
-@media (min-width: 900px) {
-  .grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .grid--frontpage,
-  .grid--menu {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-
-  .grid--frontpage figure,
-  .grid--menu figure {
-    margin-bottom: 0;
-    height: 100%;
-  }
-
-  .grid--frontpage img {
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .grid--reverse {
-    flex-direction: row-reverse;
-  }
-
-  .grid__column {
-    flex-basis: calc(50% - 2rem);
   }
 }
 
@@ -220,4 +195,78 @@ blockquote {
   background-color: var(--clr-primary);
   color: var(--clr-white);
   font-weight: 600;
+}
+
+.map {
+  border: 1px solid var(--clr-black);
+  padding: 1rem;
+}
+
+.form {
+  display: grid;
+  justify-items: left;
+  gap: 1rem;
+}
+
+.form__fieldset {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.form__textarea {
+  width: 100%;
+}
+
+.form__field {
+  display: grid;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.justify-items-left {
+  justify-items: left;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .grid {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .grid figure {
+    margin-bottom: 0;
+    height: 100%;
+  }
+
+  .grid--frontpage img,
+  .grid--contact img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .grid--contact > .grid__column:last-child {
+    flex-basis: calc(33.33% - 1rem);
+  }
+
+  .grid--contact > .grid__column:first-child {
+    flex-basis: calc(66.66% - 1rem);
+  }
+
+  .grid--reverse {
+    flex-direction: row-reverse;
+  }
+
+  .grid__column {
+    flex-basis: calc(50% - 2rem);
+  }
 }
